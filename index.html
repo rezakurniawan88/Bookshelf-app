@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BookShelf Apps</title>
+  <link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <div class="main-card">
+    <header class="head_bar">
+      <div class="title">
+        <img src="assets/images/icon.png" alt="icon">
+        <h1 class="head_bar_title">BookShelf Apps</h1>
+      </div>
+
+      <div class="container">
+        <h3>Hi, Bibliophile</h3>
+        <p>Silahkan buat dan atur daftar bacaanmu sekarang juga dengan mudah.</p>
+        <section class="search_section">
+          <form id="searchBook">
+            <i class="bi bi-search icon"></i>
+            <input id="searchBookTitle" type="text" placeholder="Cari judul buku ..." autocomplete="off">
+          </form>
+        </section>
+      </div>
+    </header>
+
+
+    <main>
+      <button class="add-book" type="submit">+ Tambah Buku Baru</button>
+        <div class="overlay">
+          <section class="input_section">
+            <h2>Masukkan Buku Baru</h2>
+            <div class="close-button"><i class="bi bi-x"></i></div>
+            <form id="inputBook">
+              <div class="input">
+                <label for="inputBookTitle">Judul</label>
+                <input id="inputBookTitle" type="text" required autofocus placeholder="Masukkan judul buku ..." autocomplete="off">
+              </div>
+              <div class="input">
+                <label for="inputBookAuthor">Penulis</label>
+                <input id="inputBookAuthor" type="text" required placeholder="Masukkan nama penulis ..." autocomplete="off">
+              </div>
+              <div class="input">
+                <label for="inputBookYear">Tanggal</label>
+                <input id="inputBookYear" type="date" required placeholder="Masukkan tahun terbit ..." autocomplete="off">
+              </div>
+              <div class="input">
+                <label for="inputBookNote">Note (opsional)</label>
+                <input id="inputBookNote" type="text" placeholder="Bisa diisi chapter/halaman yang dibaca ..." autocomplete="off">
+              </div>
+              <div class="input_inline">
+                <label for="inputBookIsComplete">Selesai dibaca</label>
+                <input id="inputBookIsComplete" type="checkbox">
+              </div>
+              <button id="bookSubmit" type="submit">Masukkan buku ke rak</button>
+            </form>
+          </section>
+        </div>
+
+      
+      <section class="shelf">
+        <section class="book_shelf" id="uncomplete-book-shelf">
+          <div class="head-shelf" id="uncomplete-head-shelf">
+            <h2>Belum selesai dibaca</h2>
+            <i class="bi bi-chevron-down" id="uncomplete-arrow-icon"></i>
+          </div>
+          <div id="uncompleteBookshelfList" class="book_list">
+
+          </div>
+        </section>
+        
+        <section class="book_shelf" id="complete-book-shelf">
+          <div class="head-shelf" id="complete-head-shelf">
+            <h2>Selesai dibaca</h2>
+            <i class="bi bi-chevron-down" id="complete-arrow-icon"></i>
+          </div>
+          <div id="completeBookshelfList" class="book_list">
+
+          </div>
+        </section>
+      </section>
+
+    <div class="overlay-box">
+      <div class="modal-box">
+        <h2>Berhasil</h2>
+        <img src="assets/images/check.png" alt="checkicon">
+        <p>Buku anda sudah berhasil ditambahkan</p>
+        <button class="modal-button">OK</button>
+      </div>
+    </div>
+
+    <div class="overlay-modal-edit">
+      <div class="modal-box">
+        <h2>Berhasil</h2>
+        <img src="assets/images/check.png" alt="checkicon">
+        <p>Buku anda sudah berhasil diedit</p>
+        <button class="modal-button-edit">OK</button>
+      </div>
+    </div>
+
+    <div class="overlay-confirm">
+      <div class="modal-confirm">
+        <h2>Konfirmasi</h2>
+        <img src="assets/images/question.png" alt="questionicon">
+        <p>Apakah anda yakin ingin memindahkannya?</p>
+        <div class="confirm-button">
+          <button class="modal-confirm-ok">OK</button>
+          <button class="modal-confirm-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-delete">
+      <div class="modal-delete">
+        <h2>Peringatan</h2>
+        <img src="assets/images/warning.jpg" alt="warnicon">
+        <p>Apakah anda yakin ingin menghapus buku ini?</p>
+        <div class="modal-delete-button">
+          <button class="modal-delete-ok">OK</button>
+          <button class="modal-delete-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-edit">
+      <section class="input_section">
+        <h2>Masukkan perubahan</h2>
+        <div class="close-btn"><i class="bi bi-x"></i></div>
+        <form id="inputBookEdit">
+          <div class="input">
+            <label for="inputBookTitle">Judul</label>
+            <input id="inputBookTitleEdit" type="text" required autofocus placeholder="Masukkan judul buku ..." autocomplete="off">
+          </div>
+          <div class="input">
+            <label for="inputBookAuthor">Penulis</label>
+            <input id="inputBookAuthorEdit" type="text" required placeholder="Masukkan nama penulis ..." autocomplete="off">
+          </div>
+          <div class="input">
+            <label for="inputBookYear">Tanggal</label>
+            <input id="inputBookYearEdit" type="date" required placeholder="Masukkan tahun terbit ..." autocomplete="off">
+          </div>
+          <div class="input">
+            <label for="inputBookNote">Note (opsional)</label>
+            <input id="inputBookNoteEdit" type="text" placeholder="Bisa diisi chapter/halaman yang dibaca ..." autocomplete="off">
+          </div>
+          <div class="input_inline">
+            <label for="inputBookIsComplete">Selesai dibaca</label>
+            <input id="inputBookIsCompleteEdit" type="checkbox">
+          </div>
+          <button id="bookSubmitEdit" type="submit">Masukkan buku ke rak</button>
+        </form>
+      </section>
+    </div>
+    </main>
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
